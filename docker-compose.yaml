@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  jenkins:
+       image: jenkins/jenkins:lts
+       privileged: true
+       user: root
+       expose:
+         - "8080"
+         - "50000"
+       volumes:
+         - /home/ec2-user/jenkins_compose/jenkins_configuration:/var/jenkins_home
+         - /var/run/docker.sock:/var/run/docker.sock
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - jenkins
+    ports:
+      - "4000:4000"  

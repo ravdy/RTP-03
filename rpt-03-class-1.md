@@ -29,7 +29,7 @@ _Validate java verison_
 Download maven pages from https://maven.apache.org/download.cgi
 we are using [Maven-3.8](https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.zip)
 
-Start searching “edit system environment variables” in the windows search, --> Environment variables --> under the System variables category, `click the New…` button to create a `new variable`.
+Start searching “edit system environment variables” in the windows search, --> Environment variables --> under the System variables category, `click the New…` button to create a `new variable`.  
 Have a JDK installed on your system. Either set the MAVEN_HOME environment variable pointing to your maven installation or have the maven executable on your PATH.
 
 _Validate java verison_

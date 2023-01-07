@@ -43,13 +43,35 @@ Download mobaxterm v22.3 [here](https://download.mobatek.net/2232022120824733/Mo
 ## Git bash installation 
 Download and install [git bash](https://git-scm.com/downloads)
 
-1.	Install terraform
-2.	Install visual studio code
-3.	Add terraform plugin
-4.	Create an IAM user with programmatic access (copy or download credentials)
-5.	Install awscli 
-6.	aws configure --profile valaxy
-7.	git clone https://github.com/ravdy/valaxy-rtp.git
-8.	Add profile name in aws-provider.tf
-9.	Create a keypair pem key in aws (key name: prd01)
+### Working with Source code 
+
+1. Clone code
+    ```sh
+     git clone https://github.com/ravdy/twittertrend.git
+    ``` 
+1. Build source code  
+   ```sh 
+    mvn clean install -Dmaven.test.skip=true  
+   ```
+1. Run java applicaiton   
+   ```sh 
+    java -jar target/demo-workshop-2.0.2.jar  
+   ```
+
+1. to test our applicaiton we should download [postman from here](https://www.postman.com/downloads/)  
+1. test applicaiton with below number   
+2. 
+####  
+  
+1.	Install terraform  
+2.	Install visual studio code  
+3.	Add terraform plugin  
+4.	Create an IAM user with programmatic access (copy or download credentials)  
+5.	Install awscli   
+6.	aws configure --profile valaxy  
+7.	git clone https://github.com/ravdy/valaxy-rtp.git  
+8.	Add profile name in aws-provider.tf  
+9.	Create a keypair pem key in aws (key name: prd01)  
+10.	
+
 

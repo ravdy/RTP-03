@@ -13,7 +13,7 @@ download vs code latest version from [here](https://code.visualstudio.com/downlo
 To build code on the local system we need source code. You can find login app source code [here](https://github.com/ravdy/loginapp)
 
 ## Git
-To download source code from github we should have git bash on local system 
+To download source code from GitHub we should have git bash on local system 
 download git bash from [here](https://git-scm.com/downloads) and install it. 
 
 Now you can clone the code onto your system using git command 
@@ -24,7 +24,7 @@ Now you can clone the code onto your system using git command
 As it is java code, we should install Java and Maven to build and run this code. 
 
 ### Java installation 
-1. Install java pacakge from **[here](https://www.oracle.com/java/technologies/downloads)**
+1. Install java package from **[here](https://www.oracle.com/java/technologies/downloads)**
 
    In this project, we are using [java-19](https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.exe)
    `Note: If you are unable to install java just check your antivirus or firewalls to allow it` 
@@ -34,16 +34,16 @@ As it is java code, we should install Java and Maven to build and run this code.
     b. in the dialog box 
      ```sh 
      Variable name: JAVA_HOME
-     Variable vaule: <JDK_PATH>
+     Variable value: <JDK_PATH>
      in my system jdk location is C:\Program Files\Java\jdk-19
      ```
      ok to save. 
-    c. add saeme to PATH variable. 
+    c. add same to PATH variable. 
     system variables --> select path -->  add new --> 
     <JDK_Path>\bin
     _in my system this path location is C:\Program Files\Java\jdk-19\bin_
 
-To valdiate java version, run below command. 
+To validate java version, run below command. 
    ```sh 
       java -version
    ``` 
@@ -63,16 +63,16 @@ Download maven packages from https://maven.apache.org/download.cgi
     b. in the dialog box 
      ```sh 
      Variable name: MAVEN_HOME
-     Variable vaule: <MAVEN_PATH>
+     Variable value: <MAVEN_PATH>
      in my system jdk location is C:\Program Files\apache-maven-3.8.7
      ```
      ok to save. 
-    c. add saeme to PATH variable. 
+    c. add same to PATH variable. 
     system variables --> select path -->  add new --> 
     <MAVEN_Path>\bin
     _in my system this path location is C:\Program Files\apache-maven-3.8.7\bin
 
-To valdiate java version, run below command. 
+To validate java version, run below command. 
    ```sh 
       mvn -version
    ``` 
@@ -88,7 +88,7 @@ Output of above command should be like below
  ### Building java source code 
 
 1. Build source code  
-   goto source code floder and run below command 
+   go to source code folder and run below command 
    `Note: make sure you have pom.xml in the folder`
    ```sh 
     mvn clean install -Dmaven.test.skip=true  
@@ -99,21 +99,21 @@ Output of above command should be like below
  
  In this project we could see a war file (login-release.war) in the target folder. 
  
- To run war file we need apache tomcat. Lets install apache tomcat
+ To run war file we need Apache tomcat. Lets install Apache tomcat
  
  ### Install Apache tomcat on Windows 
  
- 1. Download Tomcat from [tomcat webiste](https://tomcat.apache.org/download-90.cgi)
+ 1. Download Tomcat from [tomcat website](https://tomcat.apache.org/download-90.cgi)
    In this project we are using the [tomcat 9.0.7](https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.70/bin/apache-tomcat-9.0.70-windows-x64.zip) version.
 
     Extract the files and start startup.bat file.
-    `Note: You may get permision issue incase of using C:\Program Files. Better avoid this location`
+    `Note: You may get permission issue in case of using C:\Program Files. Better avoid this location`
     To start tomcat services 
-    goto tomcat installation folder --> bin --> start.bat 
-1. Access applicaiton from the browser
+    go to tomcat installation folder --> bin --> start.bat 
+1. Access application from the browser
    Go to browser and type http://localhost:8080
-1. It asks for username and password when you try to login to "manager app". to create users follow below setps 
-  Update users information in the tomcat-users.xml file goto tomcat home directory and Add below users to conf/tomcat-user.xml file.
+1. It asks for username and password when you try to login to "manager app". to create users follow below steps 
+  Update users information in the tomcat-users.xml file go to tomcat home directory and Add below users to conf/tomcat-user.xml file.
    ```sh 
     <role rolename="manager-gui"/>
     <role rolename="manager-script"/>
@@ -128,8 +128,8 @@ Output of above command should be like below
     User:tomcat
     password:s3cret
    ```
-1. Copy war file (login-release.war) ont ot webapps folder inside tomcat and reload tomcat services 
-1. access applicaiton from the browser 
+1. Copy war file (login-release.war) on to webapps folder inside tomcat and reload tomcat services 
+1. access application from the browser 
    ```sh 
     http://localhost:8080/login-release 
   ```

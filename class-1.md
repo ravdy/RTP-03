@@ -133,3 +133,9 @@ Output of above command should be like below
    ```sh 
     http://localhost:8080/login-release 
   ```
+# Things observed in the 1st Lab session:
+1.	Tomcat should be installed outside of “Program Files” to avoid permission issue while running startup.bat
+2.	https://github.com/ravdy/loginapp.git is runs with Tomcat 9.0.7 or lower. It doesn’t run with tomcat 10
+3.	mvn install should be from the location where pom.xml available  
+4.	Maven “deploy” goal fails if remote artifact is not mentioned 
+5.	You may get “connection refused” error if your firewall blocks the connection 

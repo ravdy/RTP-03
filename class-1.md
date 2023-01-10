@@ -1,5 +1,6 @@
 ## Install pre-requisites software on Developer system  
-##### Software installed on Developer system 
+Refer to this course in the [valaxy platform](https://www.valaxytech.com/course/devops-project-workshop)
+### Software installed on Developer system 
 1. VS code
 1. Git bash 
 1. Java

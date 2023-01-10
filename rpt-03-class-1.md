@@ -133,14 +133,3 @@ Output of above command should be like below
    ```sh 
     http://localhost:8080/login-release 
   ```
-
-3.	Add terraform plugin  
-4.	Create an IAM user with programmatic access (copy or download credentials)  
-5.	Install awscli   
-6.	aws configure --profile valaxy  
-7.	git clone https://github.com/ravdy/valaxy-rtp.git  
-8.	Add profile name in aws-provider.tf  
-9.	Create a keypair pem key in aws (key name: prd01)  
-10.	
-
-

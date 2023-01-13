@@ -1,0 +1,22 @@
+---
+- hosts: slave
+  become: true  
+  
+  tasks: 
+  - name: install java 
+    command: amazon-linux-extras install java-openjdk11 -y 
+
+  - name: install maven
+    yum: 
+      name: maven 
+      state: installed 
+  
+  - name: install docker 
+    yum: 
+      name: docker
+      state: installed 
+
+  - name: start docker service 
+    service: 
+      name: docker 
+      state: started 

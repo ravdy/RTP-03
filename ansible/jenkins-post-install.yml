@@ -41,12 +41,11 @@
         mode: '0755' 
       with_items: 
         - /opt/RTP-03/docker-compose.yml
-        - /opt/RTP-03/nginx.yml
-   
-    - name: run docker compose service 
-      command: docker-compose up -d 
-      args: 
-        chdir: /opt 
+        - /opt/RTP-03/nginx.yml 
+    - name: run docker compose service
+      shell:
+       cmd: "docker-compose up -d"
+       chdir: /opt
 
 
       

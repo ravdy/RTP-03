@@ -26,7 +26,7 @@ Output should be something like below
   on windows_386
   ```
   
-       ### install terraform 
+  ### install mobaxterm 
    download and install mobaxterm from [here](https://mobaxterm.mobatek.net/download-home-edition.html)
    
  We are setting up DevOps environment in the AWS cloud so we should install AWSCLI to connect with AWS cloud from windows system 

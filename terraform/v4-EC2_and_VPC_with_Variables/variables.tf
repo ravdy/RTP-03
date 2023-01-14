@@ -11,9 +11,9 @@ variable "key-name" {
 }
 
 variable "vpc_cidr" {
-    default = "10.3.0.0/16"
+    default = "10.1.0.0/16"
 }
 
 variable "subnet_cidr" {
-    default = "10.3.1.0/24"
+    default = "10.1.1.0/24"
 }

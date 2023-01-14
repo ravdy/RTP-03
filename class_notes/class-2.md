@@ -47,8 +47,8 @@ to connect with AWS cloud we need programmatic access to AWS cloud.
 1. create an IAM programmatic user with administrator access  - (AWS cloud)
 1. configure credentials - (user system)
    ```sh 
-   aws configure
-   ```
+   aws configure --profile valaxy
+   ``` 
 1. Test the connection 
    ```sh 
    aws s3 ls 

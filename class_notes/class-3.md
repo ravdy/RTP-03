@@ -37,8 +37,7 @@ Note: remove this env if you wish to set up DevOps environment using ansible
 
 ### Setup jenkins master and slave
 #### Run Freestyle Project on Slave node
-1.Click on create freestyle project
-2.Check the box restrict where this project can be run and add a slave label
+1.Click on create freestyle project.Check the box restrict where this project can be run and add a slave label
  as shown in image below
  
  
@@ -46,11 +45,11 @@ Note: remove this env if you wish to set up DevOps environment using ansible
  
  
  
- 3.Add the following command in build steps
+2.Add the following command in build steps
  ```sh
 echo" This is a test run ">>/home/ec2-user/test.txt
 ```
-4.After saving it the freestyle job is executed in slave
+3.After saving it the freestyle job is executed in slave
 #### Verification of test.txt in slave node
 1.Login to slave node 
 2.Go to -->/home/ec2-user

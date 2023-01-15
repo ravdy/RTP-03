@@ -1,6 +1,5 @@
 ## Setup Jenkins Environment
 
-### Setup Jenkins master using terraform
 As we are setting up jenkins on docker we should install docker also we are exposing jenkins to external using nginx port number 4000
 
 1. run jenkins post-install.sh file to setup docker, and docker compose

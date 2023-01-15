@@ -51,7 +51,7 @@ echo" This is a test run ">>/home/ec2-user/test.txt
 ```
 3.After saving it the freestyle job is executed in slave
 #### Verification of test.txt in slave node
-1.Login to slave node 
-2.Go to -->/home/ec2-user
-3.Verify if the test.txt file is available
-The master and salve connectivity is success
+1. Login to slave node
+2. Go to -->/home/ec2-user
+3. Verify if the test.txt file is available.The master and salve connectivity is success
+

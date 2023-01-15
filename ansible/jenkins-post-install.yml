@@ -2,20 +2,20 @@
 - hosts: master
   user: ec2-user
   become: true
-  tasks: 
+  tasks:
     - name: update system
-      yum: 
+      yum:
         name: "*"
         state: latest
       tags: docker
 
     - name: install docker
-      yum: 
+      yum:
         name: docker
-        state: installed 
-    
+        state: installed
+
     - name: Install docker compose
-      get_url:  
+      get_url:
         url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
         dest: /usr/local/bin/docker-compose
         mode: 'u+x,g+x'
@@ -26,27 +26,23 @@
         sudo usermod -aG docker $USER
         sudo chgrp docker /usr/local/bin/docker-compose
         sudo chmod +rwx /usr/local/bin/docker-compose
-        sudo chmod 777 /var/run/docker.sock
+        #       sudo chmod 777 /var/run/docker.sock
       tags: docker-config
 
     - name: start docker services
       service:
-        name: docker 
-        state: started 
+        name: docker
+        state: started
 
-    - name: copy docker-compose file 
-      copy: 
-        src: {{item}}
-        dest: /opt/ 
-        mode: '0755' 
-      with_items: 
-        - /opt/RTP-03/docker-compose.yml
-        - /opt/RTP-03/nginx.yml 
+    - name: copy docker-compose file
+      copy:
+        src: "{{ item }}"
+        dest: /opt/
+        mode: '0755'
+      with_items:
+        - /opt/RTP-03/docker-compose.yaml
+        - /opt/RTP-03/nginx.conf
     - name: run docker compose service
       shell:
        cmd: "docker-compose up -d"
        chdir: /opt
-
-
-      
-    

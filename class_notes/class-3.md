@@ -2,8 +2,8 @@
 as we are setting up jenkins on docker we should install docker also we are exposing jenkins to external using nginx port number 4000
 
 1. run jenkins post-install.sh file to setup docker, and docker compose
-2. to provision jenkins and nginx as a container we should have docker-compose and nginx.conf files. clone this from rtp-03
-3. run docker-compose up
+2. to provision jenkins and nginx as a container we should have docker-compose and nginx.conf files.
+3. run docker-compose up  
   ```sh
    docker-compose up -d
    ```

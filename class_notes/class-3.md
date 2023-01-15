@@ -40,7 +40,12 @@ Note: remove this env if you wish to set up DevOps environment using ansible
 1.Click on create freestyle project
 2.Check the box restrict where this project can be run and add a slave label
  as shown in image below
+ 
+ 
  ![i1](https://user-images.githubusercontent.com/100523955/212520610-1f6a2ba3-c217-47af-9f05-71c5a8b40d09.png)
+ 
+ 
+ 
  3.Add the following command in build steps
  ```sh
 echo" This is a test run ">>/home/ec2-user/test.txt

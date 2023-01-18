@@ -42,7 +42,8 @@
       with_items:
         - /opt/RTP-03/docker-compose.yaml
         - /opt/RTP-03/nginx.conf
+
     - name: run docker compose service
       shell:
-       cmd: "docker-compose up -d"
+       cmd: "/usr/local/bin/docker-compose up -d"
        chdir: /opt

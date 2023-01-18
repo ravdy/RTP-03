@@ -53,12 +53,11 @@ to connect with AWS cloud we need programmatic access to AWS cloud.
    ```sh 
    aws s3 ls 
    ```
- 
    
    Now it’s time to create our EC2 instance. I have created 6 versions for terraform script to create ec2 instance
-   1. [v1-ec2.tf](https://github.com/ravdy/RTP-03/blob/main/v1-EC2/v1-ec2.tf) - Just create an ec2 instance
-   2. [v2-ec2_with_sg](https://github.com/ravdy/RTP-03/blob/main/v2-EC2_with_SG/v2-ec2_with_sg.tf) - create an ec2 instance along with security group
-   3. [v3-ec2_with_vpc](https://github.com/ravdy/RTP-03/blob/main/v3-EC2_with_VPC/v3-ec2_with_vpc.tf) - create an ec2 instance, security group, VPC, subnet, internet gateway and routetable
-   4. [v4-ec2_with_variables](https://github.com/ravdy/RTP-03/tree/main/v4-EC2_and_VPC_with_Variables) - create an ec2 instance, security group, VPC, subnet, internet gateway and routetable. But values are picked by variables file 
-   5. [v5-EC2_and_VPC_with_variables_foreach_and_public_ip](https://github.com/ravdy/RTP-03/tree/main/v5-EC2_and_VPC_with_variables_foreach_and_public_ip) - create VPC and spin up 2 EC2 instance (Jenkins master and slave). also assign a public IP address for the same 
-   6. [v6-EC2_and_VPC_with_variables_and_outputs](https://github.com/ravdy/RTP-03/tree/main/v6-EC2_and_VPC_with_variables_and_outputs) - create VPC and spin up 2 EC2 instance (Jenkins master and slave). also assign a public IP address for the same. then retrieve values of vpc, public ips, security group and public subnet
+   1. [v1-ec2.tf](https://github.com/ravdy/RTP-03/tree/main/terraform/v1-EC2) - Just create an ec2 instance
+   2. [v2-ec2_with_sg](https://github.com/ravdy/RTP-03/tree/main/terraform/v2-EC2_with_SG) - create an ec2 instance along with security group
+   3. [v3-ec2_with_vpc](https://github.com/ravdy/RTP-03/tree/main/terraform/v3-EC2_with_VPC) - create an ec2 instance, security group, VPC, subnet, internet gateway and routetable
+   4. [v4-ec2_with_variables](https://github.com/ravdy/RTP-03/tree/main/terraform/v4-EC2_and_VPC_with_Variables) - create an ec2 instance, security group, VPC, subnet, internet gateway and routetable. But values are picked by variables file 
+   5. [v5-EC2_and_VPC_with_variables_foreach_and_public_ip](https://github.com/ravdy/RTP-03/tree/main/terraform/v5-EC2_and_VPC_with_variables_foreach_and_public_ip) - create VPC and spin up 2 EC2 instance (Jenkins master and slave). also assign a public IP address for the same 
+   6. [v6-EC2_and_VPC_with_variables_and_outputs](https://github.com/ravdy/RTP-03/tree/main/terraform/v6-EC2_and_VPC_with_variables_and_outputs) - create VPC and spin up 2 EC2 instance (Jenkins master and slave). also assign a public IP address for the same. then retrieve values of vpc, public ips, security group and public subnet

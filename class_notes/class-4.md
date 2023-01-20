@@ -119,7 +119,7 @@ We need a SonarQube scanner on the Jenkins server (CI server) to analyze code an
    Manage Jenkins → Configure System → SonarQube Server           
    Add sonarqube server       
    _Server:_ https://sonarcloud.io/      
-   _Token:_ <Select token which added in the above step>  
+   _Token:_ Select token which added in the above step 
    ![i9](https://user-images.githubusercontent.com/100523955/213720468-1585d0d2-0b89-4795-a6a8-c381eb99efbf.png)
 
 1. Add sonarqube scanner to jenkins     

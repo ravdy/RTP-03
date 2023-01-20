@@ -7,13 +7,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo '<--------------- Building started --------------->'
+                echo '<--------------- Building --------------->'
                 sh 'printenv'
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
                 echo '<------------- Build completed --------------->'
             }
         }
-
+        stage('Unit Test') {
+            steps {
+                echo '<--------------- Unit Testing started  --------------->'
+                sh 'mvn surefire-report:report'
+                echo '<------------- Unit Testing stopped  --------------->'
+            }
+        }
   stage ("Sonar Analysis") {
             environment {
                scannerHome = tool 'Valaxy-SonarScanner'  //scanner name configured for slave 
@@ -27,22 +33,5 @@ pipeline {
                 echo '<--------------- Sonar Analysis stopped  --------------->'
             }   
         }
-         stage ("Quality Gate") {
-
-            steps {
-                script {
-                  echo '<--------------- Quality Gate started  --------------->' 
-                    timeout(time: 1, unit: 'HOURS') {
-                        def qg = waitForQualityGate()
-                        if(qg.status!='OK'){
-                          error "Pipeline failed due to the Quality gate issue"   
-                        }    
-                    }    
-                  echo '<--------------- Quality Gate stopped  --------------->'
-                }    
-            }   
-        }      
-
-
     }
-}
+ }

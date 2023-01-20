@@ -1,6 +1,3 @@
-def imageName = 'stalin.jfrog.io/default-docker-local/twittertrend'
-def registry  = 'https://stalin.jfrog.io'
-def app
 pipeline {
     agent {
        node {
@@ -23,17 +20,18 @@ pipeline {
                 echo '<------------- Unit Testing stopped  --------------->'
             }
         }
-        stage('Sonar Analysis') {
+  stage ("Sonar Analysis") {
             environment {
-                scannerHome = tool 'SonarQubeScanner'
+               scannerHome = tool 'Valaxy-SonarScanner'  //scanner name configured for slave 
             }
             steps {
-                echo '<--------------- Sonar Analysis Started --------------->'
-                withSonarQubeEnv('SonarQube'){
+                echo '<--------------- Sonar Analysis started  --------------->'
+                withSonarQubeEnv('Valaxy-SonarQube') {    
+                    //sonarqube server name in master
                     sh "${scannerHome}/bin/sonar-scanner"
                 }    
-                echo '<--------------- Sonar Analysis Ends --------------->'
-            }    
+                echo '<--------------- Sonar Analysis stopped  --------------->'
+            }   
         }
         stage("Quality Gate") {
             steps {

@@ -1,0 +1,48 @@
+pipeline {
+    agent {
+       node {
+         label "valaxy"
+      }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo '<--------------- Building started --------------->'
+                sh 'printenv'
+                sh 'mvn clean deploy'
+                echo '<------------- Build completed --------------->'
+            }
+        }
+
+  stage ("Sonar Analysis") {
+            environment {
+               scannerHome = tool 'Valaxy-SonarScanner'  //scanner name configured for slave 
+            }
+            steps {
+                echo '<--------------- Sonar Analysis started  --------------->'
+                withSonarQubeEnv('Valaxy-SonarQube') {    
+                    //sonarqube server name in master
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }    
+                echo '<--------------- Sonar Analysis stopped  --------------->'
+            }   
+        }
+         stage ("Quality Gate") {
+
+            steps {
+                script {
+                  echo '<--------------- Quality Gate started  --------------->' 
+                    timeout(time: 1, unit: 'HOURS') {
+                        def qg = waitForQualityGate()
+                        if(qg.status!='OK'){
+                          error "Pipeline failed due to the Quality gate issue"   
+                        }    
+                    }    
+                  echo '<--------------- Quality Gate stopped  --------------->'
+                }    
+            }   
+        }      
+
+
+    }
+}

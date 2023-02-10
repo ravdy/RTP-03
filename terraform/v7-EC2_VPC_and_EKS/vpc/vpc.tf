@@ -8,7 +8,7 @@ resource "aws_vpc" "rtp03-vpc" {
   
 }
 
-// Creating a Subnet 
+// Creatomg a Subnet 
 resource "aws_subnet" "rtp03-public_subnet_01" {
     vpc_id = "${aws_vpc.rtp03-vpc.id}"
     cidr_block = var.subnet
@@ -20,7 +20,7 @@ resource "aws_subnet" "rtp03-public_subnet_01" {
   
 }
 
-// Creating a Subnet 
+// Creatomg a Subnet 
 resource "aws_subnet" "rtp03-public_subnet_02" {
     vpc_id = "${aws_vpc.rtp03-vpc.id}"
     cidr_block = var.subnet2
@@ -64,4 +64,16 @@ resource "aws_route_table_association" "rtp03-rta-public-subnet-2" {
     subnet_id = "${aws_subnet.rtp03-public_subnet_02.id}"
     route_table_id = "${aws_route_table.rtp03-public-rt.id}"
   
+}
+
+module "sgs" {
+    source = "../sg_eks"
+    vpc_id  =  aws_vpc.rtp03-vpc.id
+}
+
+module "eks" {
+    source = "../eks"
+    vpc_id  =  aws_vpc.rtp03-vpc.id
+    subnet_ids = [aws_subnet.rtp03-public_subnet_01.id,aws_subnet.rtp03-public_subnet_02.id]
+    sg_ids = module.sgs.security_group_public
 }

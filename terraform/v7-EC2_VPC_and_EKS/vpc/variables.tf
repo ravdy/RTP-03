@@ -16,17 +16,18 @@ variable "key" {
 
 variable "vpc" {
 
-    default = "10.4.0.0/16"
+    default = "10.2.0.0/16"
   
 }
 
 variable "subnet" {
 
-    default = "10.4.2.0/24"
+    default = "10.2.2.0/24"
   
 }
 
 variable "subnet2" {
-    default = "10.4.3.0/24"
+
+    default = "10.2.3.0/24"
   
 }

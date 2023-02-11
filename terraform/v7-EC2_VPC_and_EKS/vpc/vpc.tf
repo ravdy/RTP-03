@@ -72,8 +72,8 @@ module "sgs" {
 }
 
 module "eks" {
-    source = "../eks"
-    vpc_id  =  aws_vpc.rtp03-vpc.id
-    subnet_ids = [aws_subnet.rtp03-public_subnet_01.id,aws_subnet.rtp03-public_subnet_02.id]
-    sg_ids = module.sgs.security_group_public
+   source = "../eks"
+   vpc_id  =  aws_vpc.rtp03-vpc.id
+   subnet_ids = [aws_subnet.rtp03-public_subnet_01.id,aws_subnet.rtp03-public_subnet_02.id]
+   sg_ids = module.sgs.security_group_public
 }

@@ -82,5 +82,6 @@ Ensure below are update
 Check-point: 
 1. Provide jfrog repo URL in the place of `valaxy02.jfrog.io/valaxy-docker` in `def imageName = 'valaxy02.jfrog.io/valaxy-docker/ttrend'`  
 2. Match version number in `def version   = '2.0.2'` with pom.xml version number  
+3. Ensure you have updated credentials in the field of `jfrogforjenkins` in `docker.withRegistry(registry, 'jfrogforjenkins'){`
 
 Note: make sure docker service is running on the slave system, and docker should have permissions to /var/run/docker.sock

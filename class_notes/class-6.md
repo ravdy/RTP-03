@@ -121,16 +121,23 @@ vpc.tf
    -n valaxy
 ``` 
 
-  alternatively, you can also run the below command  
+  alternatively, you can also run the below command to create secret file   
   ```sh 
-   kubectl create secret generic regcred --from-file=.dockerconfigjson=/root/.docker/config.json --type=kubernetes.io/dockerconfigjson
+   kubectl create secret generic regcred --from-file=.dockerconfigjson=/root/.docker/config.json --type=kubernetes.io/dockerconfigjson -n valaxy -o yaml > secret.yaml
   ```
+
+  anotherway is, genarate encode value for ~/.docker/config.json file 
+  ```sh 
+   cat ~/.docker/config.json | base64 -w0
+   ```
+   
 `Note:` For more refer to [Kuberentes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/   
 Make sure secret value name `regcred` is updated in the deployment file.  
 
 1. To test the deployment, you should run the below command 
    ```sh 
     kubectl apply -f namespace.yaml
+    kubectl apply -f secret.yaml
     kubectl apply -f deployment.yaml
     kubectl apply -f service.yaml
    ```
@@ -139,7 +146,7 @@ Make sure secret value name `regcred` is updated in the deployment file.
 ```sh 
   cat /root/.docker/config.json 
   `copy auth value to encode`
-  echo -n 'a3ViZXJuZXRlc19hZG1pbjpWYWxheHlAMTIz' | base64
+  cat ~/.docker/config.json | base64 -w0
   `use above command output in the secret`
 ```
 

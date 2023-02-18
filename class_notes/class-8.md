@@ -29,17 +29,21 @@
   helm install prometheus prometheus-community/kube-prometheus-stack
   # helm install prometheus prometheus-community/prometheus --namespace monitoring
     ```
+
 6. Above helm create all services as ClusterIP, To access Grafana and prometheus out side of cluster, we should change service type load balancer
    ```sh 
    kubectl edit svc prometheus-kube-prometheus-prometheus
    kubectl edit svc prometheus-grafana
    ```
-7. View the Prometheus dashboard by forwarding the deployment ports
+
+7. To login to Grafana account use below user name and password 
    ```sh
-   kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 8000:9090
+   username: admin
+   password: prom-operator
+   ```
+8. Same you can find here
+   ```sh 
+   get secret --namespace default
+   kubectl get secret --namespace default prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo 
    ```
 
-8. By default all prots are ClusterIP. We should create node port for prometheus server to access from external network 
-   ```sh
-   kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext 
-   ```

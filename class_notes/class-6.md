@@ -187,3 +187,10 @@ Issue 2.
    error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1"
   ```
    `Ensure latest version of awscli is installed and remove old awscli version`
+
+Issue 3: 
+  ```sh 
+  [ec2-user@ip-172-31-49-102 ~]$ kubectl version
+  error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1"
+  ```
+  use lower kubectl version then kubernetes verison to address this issue

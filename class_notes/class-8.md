@@ -23,27 +23,23 @@
    helm repo update
    helm repo list
    ```
-5. Create prometheus namespace
-   ```sh 
-   kubectl create namespace prometheus
-   ```
 
-6. Install the prometheus
+5. Install the prometheus
    ```sh
- helm install prometheus prometheus-community/prometheus  --namespace prometheus
+  helm install prometheus prometheus-community/kube-prometheus-stack
+  # helm install prometheus prometheus-community/prometheus --namespace monitoring
     ```
-
-7. List out the prometheus 
+6. Above helm create all services as ClusterIP, To access Grafana and prometheus out side of cluster, we should change service type load balancer
    ```sh 
-   kubectl get all - n prometheus
+   kubectl edit svc prometheus-kube-prometheus-prometheus
+   kubectl edit svc prometheus-grafana
    ```
-
-8. View the Prometheus dashboard by forwarding the deployment ports
+7. View the Prometheus dashboard by forwarding the deployment ports
    ```sh
-   kubectl port-forward deployment/prometheus-server 9090:9090 -n prometheus
+   kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 8000:9090
    ```
 
-9. By default all prots are ClusterIP. We should create node port for prometheus server to access from external network 
+8. By default all prots are ClusterIP. We should create node port for prometheus server to access from external network 
    ```sh
    kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext 
    ```

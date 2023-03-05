@@ -50,6 +50,11 @@ Dependences    | need pom.xml       | need package.json
 Refer bleow document for more info - [source](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html)
 
 5. Create pipeline line job 
+   `Check-point`: 
+    1. Ensure you have installed 'docker-pipeline' and 'nodejs' plugins
+    2. Create repo 'demo-nodejs' on Jfrog artifactory 
+
+   
    Write Jenkinsfile as mentioned [here](https://raw.githubusercontent.com/ravdy/nodejs-project/main/Jenkinsfile) and commit in the repository 
    ```sh
    def registry = 'https://valaxy02.jfrog.io'

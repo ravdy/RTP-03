@@ -21,15 +21,19 @@ Dependences    | need pom.xml       | need package.json
 
 ### CI/CD pipeline for NodeJS
 
-1. Install npm on the build server
-2. clone the code from [here](https://github.com/ravdy/nodejs-project.git)
-   ```sh
-   git clone https://github.com/ravdy/nodejs-project.git
+1. Install npm on Build Server 
+   ```sh 
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+   . ~/.nvm/nvm.sh
+   nvm install 16
    ```
-3. install nodejs plugin in Jenkins   
+   Refer bleow document for more info - [source](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html)
+
+
+1. Install nodejs plugin in Jenkins   
    Manage Jenkins --> install plugins --> 'node Js'
 
-4. Configure nodejs in the Global tool configuration 
+1. Configure nodejs in the Global tool configuration 
    Manage Jenkins --> Global tool configuration --> Nodejs
    `Name:` nodejs-16.6
    select install automatically
@@ -38,22 +42,17 @@ Dependences    | need pom.xml       | need package.json
   otherwise, you might encounter an error message like below   
    ```sh 
     node: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by node)
-    node: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by node)
-   ```
-   
-5. Install npm  
-   ```sh 
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-   . ~/.nvm/nvm.sh
-   nvm install 16
-   ```
-Refer bleow document for more info - [source](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html)
-
-5. Create pipeline line job   
+    node: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by node)  
+   ```  
+ 
    `Check-point`: 
-    1. Ensure you have installed 'docker-pipeline' and 'nodejs' plugins
+    1. Ensure you have installed 'docker pipeline' and 'nodejs' plugins
     2. Create repo 'demo-nodejs' on Jfrog artifactory 
-
+    3. add jfrog credentials (here we are using 'jfrog-access')
+1. Create Pipeline job for NodeJS and use below repository to get the code
+   ```sh
+   git clone https://github.com/ravdy/nodejs-project.git
+   ```
    
    Write Jenkinsfile as mentioned [here](https://raw.githubusercontent.com/ravdy/nodejs-project/main/Jenkinsfile) and commit in the repository 
    ```sh

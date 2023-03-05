@@ -46,9 +46,9 @@ Dependences    | need pom.xml       | need package.json
    ```  
  
    `Check-point`: 
-    1. Ensure you have installed 'docker pipeline' and 'nodejs' plugins
-    2. Create repo 'demo-nodejs' on Jfrog artifactory 
-    3. add jfrog credentials (here we are using 'jfrog-access')
+    1. Ensure you have installed 'docker pipeline' and 'nodejs' plugins  
+    2. Create repo 'demo-nodejs' on Jfrog artifactory   
+    3. add jfrog credentials (here we are using 'jfrog-access')  
 1. Create Pipeline job for NodeJS and use below repository to get the code
    ```sh
    git clone https://github.com/ravdy/nodejs-project.git

@@ -49,7 +49,7 @@ Dependences    | need pom.xml       | need package.json
    ```
 Refer bleow document for more info - [source](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html)
 
-5. Create pipeline line job 
+5. Create pipeline line job   
    `Check-point`: 
     1. Ensure you have installed 'docker-pipeline' and 'nodejs' plugins
     2. Create repo 'demo-nodejs' on Jfrog artifactory 
